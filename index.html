@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TN 10th Maths - 1 Mark Questions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(220, 20, 60, 0.15) 0%, transparent 50%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1a0000 0%, #000000 100%);
+            border-radius: 20px;
+            box-shadow: 
+                0 0 60px rgba(255, 0, 0, 0.3),
+                0 20px 60px rgba(0, 0, 0, 0.8),
+                inset 0 0 100px rgba(139, 0, 0, 0.1);
+            padding: 40px;
+            border: 2px solid rgba(220, 20, 60, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #ff0000, #dc143c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7));
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #ff6b6b;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .score-board {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+            border-radius: 15px;
+            border: 2px solid rgba(220, 20, 60, 0.4);
+            box-shadow: 
+                0 0 30px rgba(255, 0, 0, 0.2),
+                inset 0 0 30px rgba(139, 0, 0, 0.1);
+        }
+
+        .score-item {
+            text-align: center;
+        }
+
+        .score-number {
+            font-size: 2.2em;
+            font-weight: bold;
+            display: block;
+            background: linear-gradient(135deg, #ff0000, #dc143c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+        }
+
+        .score-label {
+            font-size: 0.9em;
+            color: #ffaaaa;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+
+        .chapter-header {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+            color: #ff3333;
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin: 30px 0 20px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+            border: 2px solid rgba(220, 20, 60, 0.5);
+            box-shadow: 
+                0 0 20px rgba(255, 0, 0, 0.3),
+                inset 0 0 20px rgba(139, 0, 0, 0.2);
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+        }
+
+        .question-card {
+            background: linear-gradient(135deg, rgba(26, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 
+                0 4px 15px rgba(255, 0, 0, 0.2),
+                inset 0 0 30px rgba(139, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(220, 20, 60, 0.3);
+        }
+
+        .question-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 8px 25px rgba(255, 0, 0, 0.4),
+                inset 0 0 40px rgba(139, 0, 0, 0.2);
+            border-color: rgba(220, 20, 60, 0.6);
+        }
+
+        .question-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b0000, #dc143c);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+        }
+
+        .question-text {
+            font-size: 1.1em;
+            color: #ffcccc;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .options {
+            display: grid;
+            gap: 12px;
+        }
+
+        .option {
+            padding: 15px 20px;
+            border: 2px solid rgba(139, 0, 0, 0.5);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(26, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+            color: #ffcccc;
+            font-size: 1em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .option:hover:not(.disabled) {
+            border-color: #dc143c;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.6) 0%, rgba(26, 0, 0, 0.8) 100%);
+            transform: translateX(5px);
+            box-shadow: 
+                0 0 20px rgba(255, 0, 0, 0.4),
+                inset 0 0 20px rgba(139, 0, 0, 0.2);
+        }
+
+        .option.correct {
+            background: linear-gradient(135deg, rgba(0, 100, 0, 0.6) 0%, rgba(0, 50, 0, 0.8) 100%);
+            border-color: #00ff00;
+            color: #ccffcc;
+            font-weight: bold;
+            animation: correctPulse 0.5s ease;
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+        }
+
+        .option.wrong {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.8) 0%, rgba(80, 0, 0, 0.9) 100%);
+            border-color: #ff0000;
+            color: #ffcccc;
+            animation: wrongShake 0.5s ease;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+        }
+
+        .option.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        @keyframes correctPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(0, 255, 0, 0.8); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes wrongShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 500;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background: linear-gradient(135deg, rgba(0, 100, 0, 0.4) 0%, rgba(0, 50, 0, 0.6) 100%);
+            color: #ccffcc;
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .feedback.wrong {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.6) 0%, rgba(80, 0, 0, 0.8) 100%);
+            color: #ffcccc;
+            border: 2px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reset-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #8b0000 0%, #dc143c 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 4px 15px rgba(255, 0, 0, 0.4),
+                0 0 30px rgba(255, 0, 0, 0.3);
+            border: 2px solid rgba(220, 20, 60, 0.5);
+        }
+
+        .reset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 6px 20px rgba(255, 0, 0, 0.6),
+                0 0 50px rgba(255, 0, 0, 0.5);
+            background: linear-gradient(135deg, #dc143c 0%, #ff0000 100%);
+        }
+
+        .completion-message {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+            color: #ffcccc;
+            border-radius: 15px;
+            margin-top: 30px;
+            display: none;
+            animation: slideIn 0.5s ease;
+            border: 2px solid rgba(220, 20, 60, 0.5);
+            box-shadow: 
+                0 0 40px rgba(255, 0, 0, 0.3),
+                inset 0 0 40px rgba(139, 0, 0, 0.2);
+        }
+
+        .completion-message.show {
+            display: block;
+        }
+
+        .completion-message h2 {
+            margin-bottom: 15px;
+            font-size: 2em;
+            background: linear-gradient(135deg, #ff0000, #dc143c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+        }
+
+        .completion-message p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .score-board {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .question-text {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 TN 10th Mathematics 🔥</h1>
+        <p class="subtitle">1 Mark Questions - Complete Edition with Answer Key</p>
+
+        <div class="score-board">
+            <div class="score-item">
+                <span class="score-number" id="correct-count">0</span>
+                <span class="score-label">✓ Correct</span>
+            </div>
+            <div class="score-item">
+                <span class="score-number" id="wrong-count">0</span>
+                <span class="score-label">✗ Wrong</span>
+            </div>
+            <div class="score-item">
+                <span class="score-number" id="total-count">0/238</span>
+                <span class="score-label">Attempted</span>
+            </div>
+        </div>
+
+        <div id="questions-container"></div>
+
+        <div class="completion-message" id="completion-message">
+            <h2>🎉 Quiz Completed! 🎉</h2>
+            <p>Excellent work completing all questions!</p>
+            <p id="final-score"></p>
+        </div>
+
+        <button class="reset-btn" onclick="resetQuiz()">🔄 Reset Quiz</button>
+    </div>
+
+    <script>
+        const questions = [
+            // Chapter 1: Relations and Functions - Exercise 1.6
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "If n(A × B) = 6 and A = {1, 3} then n(B) is:", options: ["1", "2", "3", "6"], correct: 1 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "A = {a,b, p}, B = {2, 3}, C = {p,q,r,s} then n[(A ∪ C) × B] is:", options: ["8", "20", "12", "16"], correct: 3 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "If A = {1,2}, B = {1,2, 3, 4}, C = {5,6} and D = {5, 6, 7, 8} then which statement is true:", options: ["(A × C) ⊂ (B × D)", "(B × D) ⊂ (A × C)", "(A × B) ⊂ (A × D)", "(D × A) ⊂ (B × A)"], correct: 0 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "If there are 1024 relations from set A = {1, 2, 3, 4, 5} to set B, then n(B) is:", options: ["3", "2", "4", "8"], correct: 1 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "The range of the relation R = {(x, x²) | x is a prime number less than 13} is:", options: ["{2,3,5,7}", "{2,3,5,7,11}", "{4,9,25,49,121}", "{1,4,9,25,49,121}"], correct: 2 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "If ordered pairs (a+2, 4) and (5, 2a+b) are equal then (a,b) is:", options: ["(2, –2)", "(5,1)", "(2,3)", "(3, –2)"], correct: 0 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "Let n(A) = m and n(B) = n then total number of non-empty relations from A to B is:", options: ["mⁿ", "nᵐ", "2^(mn) − 1", "2^(mn)"], correct: 2 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "If {(a, 8),(6,b)} represents an identity function, then a and b are:", options: ["(8,6)", "(8,8)", "(6,8)", "(6,6)"], correct: 3 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "Let A = {1,2, 3, 4} and B = {4, 8,9,10}. f: A → B given by f = {(1, 4),(2, 8),(3,9),(4,10)} is a:", options: ["Many-one function", "Identity function", "One-to-one function", "Into function"], correct: 2 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "If f(x) = 2x² and g(x) = 1/(3x), then f ∘ g is:", options: ["3/(2x²)", "2/(3x²)", "2/(9x²)", "1/(6x²)"], correct: 2 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "If f: A → B is a bijective function and n(B) = 7, then n(A) equals:", options: ["7", "49", "1", "14"], correct: 0 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "f = {(0, 1), (2, 0), (3, −4), (4, 2), (5, 7)}, g = {(0, 2), (1, 0), (2, 4), (−4, 2), (7, 0)}, range of f ∘ g is:", options: ["{0, 2, 3, 4, 5}", "{–4, 1 ,0, 2, 7}", "{1, 2, 3, 4, 5}", "{0, 1, 2}"], correct: 3 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "Let f(x) = √(1 + x²) then:", options: ["f(xy) = f(x).f(y)", "f(xy) ≥ f(x).f(y)", "f(xy) ≤ f(x).f(y)", "None of these"], correct: 2 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "If g = {(1, 1), (2, 3), (3, 5), (4, 7)} is given by g(x) = αx + β, then α and β are:", options: ["(–1,2)", "(2, –1)", "(–1, –2)", "(1,2)"], correct: 3 },
+            { chapter: "Chapter 1: Relations and Functions - Exercise 1.6", question: "f(x) = (x + 1)³ − (x − 1)³ represents a function which is:", options: ["linear", "cubic", "reciprocal", "quadratic"], correct: 0 },
+
+            // Chapter 1: QR Code Questions
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If f: ℝ → ℝ is defined by f(x) = x² + 2, then preimage of 27 are:", options: ["0, 5", "5, −5", "5, 0", "√5, −√5"], correct: 1 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If f(x − 1/x) = x² + 1/x², then f(x) =", options: ["x² + 2", "x² + 1/x²", "x² − 2", "x² − 1/x²"], correct: 0 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "A = {a, b, c}, B = {2, 3}, C = {a, b, c, d} then n[(A ∩ C) × B] is:", options: ["6", "8", "4", "12"], correct: 0 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If ordered pairs (a, -1) and (5, b) belongs to {(x, y)|y = 2x + 3}, then a and b are:", options: ["−13, 2", "2, 13", "2, −13", "−2, 13"], correct: 1 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If function f: ℕ → ℕ, f(x) = 2x, then the function is:", options: ["Not one-one and not onto", "one-one and onto", "Not one-one but onto", "one-one but not onto"], correct: 3 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If f(x) = x + 1 then f(f(f(y + 2))) is:", options: ["y + 5", "y + 6", "y + 7", "y + 9"], correct: 3 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If f(x) = mx + n, where m and n are integers, f(−2) = 7, f(3) = 2 then m and n equal to:", options: ["−1, −5", "1, −9", "−1, 5", "1, 9"], correct: 0 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "The function t which maps temperature in Celsius to Fahrenheit t(c) = (9C/5) + 32, if Fahrenheit is 95, then C is:", options: ["37", "39", "35", "36"], correct: 0 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If f(x) = ax − 2, g(x) = 2x − 1 and f∘g = g∘f, the value of a is:", options: ["3", "−3", "1/3", "13"], correct: 2 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If f(x) = 1/x and g(x) = 1/x³ then f∘g∘f(y) is:", options: ["1/y⁸", "1/y⁶", "1/y⁴", "1/y³"], correct: 1 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If f(x) = 2 − 3x, then f∘f(1 − x) =", options: ["5x + 9", "9x − 5", "5 − 9x", "5x − 9"], correct: 0 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If f(x) + f(1 − x) = 2 then f(1/2) is:", options: ["5", "−1", "−9", "1"], correct: 3 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If f is constant function of value 1/10, value of f(1) + f(2) + ... + f(100) is:", options: ["1/100", "100", "1/10", "10"], correct: 1 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If f(x) = (x+1)/(x−2), g(x) = (1+2x)/(x−1) then f∘g(x) is:", options: ["Constant function", "Quadratic function", "Cubic function", "Identity function"], correct: 0 },
+            { chapter: "Chapter 1: Relations and Functions - QR Code", question: "If f is an identity function, value of f(1) − 2f(2) + f(3) is:", options: ["−1", "−3", "1", "0"], correct: 3 },
+
+            // Chapter 2: Numbers and Sequences - Exercise 2.10
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "Euclid's division lemma: for positive integers a and b, there exist unique q and r such that a = bq + r, where r must satisfy:", options: ["1 < r < b", "0 < r < b", "0 ≤ r < b", "0 < r ≤ b"], correct: 2 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "Using Euclid's division lemma, if cube of any positive integer is divided by 9, possible remainders are:", options: ["0, 1, 8", "1, 4, 8", "0, 1, 3", "1, 3, 5"], correct: 0 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "If HCF of 65 and 117 is expressible as 65m − 117, then value of m is:", options: ["4", "2", "1", "3"], correct: 2 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "Sum of exponents of prime factors in prime factorization of 1729 is:", options: ["1", "2", "3", "4"], correct: 2 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "Least number divisible by all numbers from 1 to 10 (both inclusive) is:", options: ["2025", "5220", "5025", "2520"], correct: 3 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "7^(4k) ≡ _____ (mod 100):", options: ["1", "2", "3", "4"], correct: 1 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "Given F₁ = 1, F₂ = 3 and Fₙ = Fₙ₋₁ + Fₙ₋₂, then F₅ is:", options: ["3", "5", "8", "11"], correct: 2 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "First term of A.P. is unity and common difference is 4. Which will be a term:", options: ["4551", "10091", "7881", "13531"], correct: 2 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "If 6 times of 6th term of A.P. equals 7 times 7th term, then 13th term is:", options: ["0", "6", "7", "13"], correct: 0 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "A.P. consists of 31 terms. If 16th term is m, sum of all terms is:", options: ["16m", "62m", "31m", "31m/2"], correct: 2 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "In A.P., first term is 1 and common difference is 4. How many terms for sum = 120:", options: ["6", "7", "8", "9"], correct: 3 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "If A = 2⁶⁵ and B = 2⁶⁴ + 2⁶³ + ... + 2⁰, which is true:", options: ["B is 2⁶⁴ more than A", "A and B are equal", "B is larger than A by 1", "A is larger than B by 1"], correct: 2 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "Next term of sequence 3/16, 1/8, 1/12, 1/18, ... is:", options: ["1/24", "1/27", "2/3", "1/81"], correct: 0 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "If t₁, t₂, t₃, ... are in A.P. then t₆, t₁₂, t₁₈, ... is:", options: ["Geometric Progression", "Arithmetic Progression", "Neither A.P. nor G.P.", "Constant sequence"], correct: 1 },
+            { chapter: "Chapter 2: Numbers and Sequences - Exercise 2.10", question: "(1³ + 2³ + 3³ + ... + 15³) − (1 + 2 + 3 + ... + 15) is:", options: ["14400", "14200", "14280", "14520"], correct: 2 },
+
+            // Chapter 2: QR Code Questions
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "HCF of least prime and least composite number:", options: ["1", "2", "3", "4"], correct: 1 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "If a and b are positive integers, a > b and b is factor of a, then HCF(a, b) is:", options: ["b", "a", "ab", "a/b"], correct: 0 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "If m and n are co-prime, then m² and n² are:", options: ["Co-prime", "Not co-prime", "Even", "Odd"], correct: 0 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "If 3 is least prime factor of a and 7 is least prime factor of b, least prime factor of a + b is:", options: ["a + b", "2", "5", "10"], correct: 1 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "Difference between remainders when 60002 and 601 are divided by 6:", options: ["2", "1", "0", "3"], correct: 2 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "44 ≡ 8 (mod 12), 113 ≡ 5 (mod 12), thus 44 × 113 ≡ _____ (mod 12):", options: ["4", "3", "2", "1"], correct: 1 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "Given a₁ = −1, aₙ = aₙ₋₁/(n+2), then a₄ is:", options: ["−1/20", "−1/4", "−1/840", "−1/120"], correct: 0 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "First term of A.P. whose 8th and 12th terms are 39 and 59:", options: ["5", "6", "4", "3"], correct: 2 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "In arithmetic series Sₙ = k + 2k + 3k + ... + 100k, k is positive integer and factor of 100:", options: ["1000 + 10/k", "5000 + 50/k", "1000/k + 10", "5000/k + 50"], correct: 0 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "How many terms in G.P: 5, 20, 80, 320, ..., 20480:", options: ["5", "6", "7", "9"], correct: 2 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "If pᵗʰ, qᵗʰ and rᵗʰ terms of A.P. are a, b, c, then a(q−r) + b(r−p) + c(p−q) is:", options: ["0", "a + b + c", "p + q + r", "pqr"], correct: 0 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "Sum of infinite G.P. is 12 and first term is 8. Fourth term is:", options: ["8/27", "4/27", "8/20", "1/3"], correct: 3 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "Square drawn by joining mid-points of sides. First square side is 4 cm. Sum of all areas:", options: ["8 cm²", "16 cm²", "32 cm²", "64 cm²"], correct: 1 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "Boy saves ₹1, ₹2, ₹4, ₹8... How much saved up to 20 days:", options: ["2¹⁹ + 1", "2¹⁹ − 1", "2²⁰ − 1", "2²¹ − 1"], correct: 1 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "Sum of first n terms of series a, 3a, 5a, ... is:", options: ["na", "(2n − 1)a", "n²a", "n²a²"], correct: 2 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "If p, q, r, x, y, z in A.P, then 5p+3, 5q+3, 5r+3, 5x+3, 5y+3, 5z+3 form:", options: ["G.P", "A.P", "Constant sequence", "Neither A.P nor G.P"], correct: 1 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "In A.P if pᵗʰ term is q and qᵗʰ term is p, then nᵗʰ term is:", options: ["p + q − n", "p + q + n", "p − q + n", "p − q − n"], correct: 0 },
+            { chapter: "Chapter 2: Numbers and Sequences - QR Code", question: "Sum of first n terms of √2 + √8 + √18 + ... is:", options: ["n(n+1)/2", "√n", "n(n+1)/√2", "1"], correct: 0 },
+
+            // Chapter 3: Algebra - Exercise 3.19
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "System of three linear equations in three variables is inconsistent if their planes:", options: ["intersect only at a point", "intersect in a line", "coincides with each other", "do not intersect"], correct: 3 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "Solution of x + y − 3z = −6, −7y + 7z = 7, 3z = 9 is:", options: ["x = 1, y = 2, z = 3", "x = −1, y = 2, z = 3", "x = −1, y = −2, z = 3", "x = 1, y = 2, z = 3"], correct: 0 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "If (x−6) is HCF of x²−2x−24 and x²−kx−6, then k is:", options: ["3", "5", "6", "8"], correct: 3 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "(3y−3)/y ÷ (7y−7)/(3y²) is:", options: ["9y/7", "9y²/(21y−21)", "(21y²−42y−21)/(3y³)", "7(y²−2y−2)/y²"], correct: 3 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "y² + 1/y² is not equal to:", options: ["(y⁴+1)/y²", "[y + 1/y]²", "[y − 1/y]² + 2", "[y + 1/y]² − 2"], correct: 0 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "x/(x²−25) − 8/(x²+6x+5) gives:", options: ["(x²−7x+40)/((x−5)(x+5))", "(x²+7x+40)/((x−5)(x+5)(x+1))", "(x²−7x+40)/((x²−25)(x+1))", "(x²+10)/((x²−25)(x+1))"], correct: 2 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "Square root of (256x⁸y⁴z¹⁰)/(25x⁶y⁶z⁶) equals:", options: ["(16/5)|x²z⁴/y²|", "(16/5)|y²/(x²z⁴)|", "(16/5)|y/(xz²)|", "(16/5)|xz²/y|"], correct: 3 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "What should be added to x⁴ + 64 to make perfect square:", options: ["4x²", "16x²", "8x²", "−8x²"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "Solution of (2x − 1)² = 9 is:", options: ["-1", "2", "–1, 2", "None"], correct: 2 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "Values of a and b if 4x⁴ − 24x³ + 76x² + ax + b is perfect square:", options: ["100,120", "10,12", "-120,100", "12,10"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "If roots of q²x² + p²x + r² = 0 are squares of roots of qx² + px + r = 0, then q, p, r are in:", options: ["A.P", "G.P", "Both A.P and G.P", "none"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "Graph of linear polynomial is:", options: ["straight line", "circle", "parabola", "hyperbola"], correct: 0 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "Number of intersection points of x² + 4x + 4 with X axis:", options: ["0", "1", "0 or 1", "2"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "For matrix A = [1 3 5 7; 2 4 6 8; 9 11 13 15], order of Aᵀ is:", options: ["2×3", "3×2", "3×4", "4×3"], correct: 3 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "If A is 2×3 matrix and B is 3×4 matrix, how many columns does AB have:", options: ["3", "4", "2", "5"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "If columns and rows not equal in matrix, it is:", options: ["diagonal matrix", "rectangular matrix", "square matrix", "identity matrix"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "Transpose of column matrix is:", options: ["unit matrix", "diagonal matrix", "column matrix", "row matrix"], correct: 3 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "Find X if 2X + [1 3; 5 7] = [5 7; 9 5]:", options: ["[−2 −2; 2 −1]", "[2 2; 2 −1]", "[1 2; 2 2]", "[2 1; 2 2]"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "Which can be calculated from A = [1 2; 3 4; 5 6], B = [1 2 3; 4 5 6; 7 8 9]:", options: ["(i) and (ii) only", "(ii) and (iii) only", "(ii) and (iv) only", "all of these"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - Exercise 3.19", question: "A = [1 2 3; 3 2 1], B = [1 0; 2 −1; 0 2], C = [0 1; −2 5]. Which statements correct:", options: ["(i) and (ii) only", "(ii) and (iii) only", "(iii) and (iv) only", "all of these"], correct: 3 },
+
+            // Chapter 3: QR Code Questions  
+            { chapter: "Chapter 3: Algebra - QR Code", question: "Which are linear equations in three variables:", options: ["(i) and (iii) only", "(i) and (iv) only", "(iv) only", "All"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "Graphically infinite solutions represents:", options: ["three planes no point common", "three planes intersecting at point", "three planes intersecting in line or coinciding", "None"], correct: 2 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "Which statement is correct about polynomials:", options: ["(i) and (ii)", "(iii) and (iv)", "(iii) only", "(iv) only"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "HCF of p(x) and q(x) is 2x(x+2) and LCM is 24x(x+2)²(x−2). If p(x) = 8x³+32x²+32x, then q(x):", options: ["4x³−16x", "6x³−24x", "12x³+24x", "12x³−24x"], correct: 3 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "Consider statements about HCF of x+y and x⁸±y⁸:", options: ["(i) and (ii)", "(ii) and (iii)", "(i) and (iv)", "(ii) and (iv)"], correct: 2 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "For what values (x²+5x+6)/(x²+8x+15) is undefined:", options: ["−3, −5", "−5", "−2, −3, −5", "−2, −3"], correct: 0 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "(x²+7x+12)/(x²+8x+15) × (x²+5x)/(x²+6x+8) = _____:", options: ["x + 2", "x/(x+2)", "(35x²+60x)/(48x²+120)", "1/(x+2)"], correct: 3 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "If p/q = a then (p²+q²)/(p²−q²) is:", options: ["(a²+1)/(a²−1)", "(1+a²)/(1−a²)", "(1−a²)/(1+a²)", "(a²−1)/(a²+1)"], correct: 0 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "Square root of 4m² − 24m + 36 is:", options: ["4(m − 3)", "2(m − 3)", "(2m − 3)²", "(m − 3)"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "Real roots of x² − x − 1 are:", options: ["1, 1", "−1, 1", "(1+√5)/2, (1−√5)/2", "None"], correct: 2 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "Product of sum and product of roots of (a²−b²)x² − (a+b)²x + (a³−b³) = 0 is:", options: ["(a²+ab+b²)/(a−b)", "(a−b)/(a+b)", "(a−b)/(a+b)", "(a−b)/(a²+ab+b²)"], correct: 0 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "Quadratic polynomial with one zero 5 and sum 0:", options: ["x² − 25", "x² − 5", "x² − 5x", "x² − 5x + 5"], correct: 0 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "Axis of symmetry separates parabola into:", options: ["3 equal halves", "5 equal halves", "2 equal halves", "4 equal halves"], correct: 2 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "The parabola y = −3x² is:", options: ["Open upward", "Open downward", "Open rightward", "Open leftward"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "Choose correct answer about matrices:", options: ["(i) and (iii) only", "(iii) only", "(iv) only", "(ii) and (iv) only"], correct: 3 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "If 2A + 3B = [2 −1 4; 3 2 5] and A + 2B = [5 0 3; 1 6 2] then B =", options: ["[8 −1 −2; −1 10 −1]", "[8 −1 2; −1 10 −1]", "[8 1 2; 1 10 1]", "[8 1 2; −1 10 −1]"], correct: 1 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "If [4 3 2][1; −2; x] = [6], then x is:", options: ["4", "3", "2", "1"], correct: 3 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "If A = [y 0; 3 4] and I = [1 0; 0 1] then A² = 16I for:", options: ["y = 4", "y = 5", "y = −4", "y = 16"], correct: 0 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "If P and Q are matrices, which is true:", options: ["PQ ≠ QP", "(Pᵀ)ᵀ ≠ P", "P + Q ≠ Q + P", "All are true"], correct: 0 },
+            { chapter: "Chapter 3: Algebra - QR Code", question: "Which products can be made from A (3×2) and B (2×3):", options: ["(i) only", "(ii) and (iii) only", "(iii) and (iv) only", "All the above"], correct: 2 },
+
+            // Chapter 4: Geometry - Exercise 4.5
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "If in triangles ABC and EDF, AB/DE = BC/FD then they will be similar, when:", options: ["∠B = ∠E", "∠A = ∠D", "∠B = ∠D", "∠A = ∠F"], correct: 2 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "In △LMN, ∠L = 60°, ∠M = 50°. If △LMN ~ △PQR then ∠R is:", options: ["40°", "70°", "30°", "110°"], correct: 1 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "If △ABC is isosceles with ∠C = 90° and AC = 5 cm, then AB is:", options: ["2.5 cm", "5 cm", "10 cm", "5√2 cm"], correct: 3 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "ST ∥ QR, PS = 2 cm and SQ = 3 cm. Ratio of area of △PQR to △PST is:", options: ["25:4", "25:7", "25:11", "25:13"], correct: 0 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "Perimeters of △ABC and △PQR are 36 cm and 24 cm. If PQ = 10 cm, then AB is:", options: ["6⅔ cm", "(10√6)/3 cm", "66⅔ cm", "15 cm"], correct: 3 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "In △ABC, DE ∥ BC, AB = 3.6 cm, AC = 2.4 cm and AD = 2.1 cm, then AE is:", options: ["1.4 cm", "1.8 cm", "1.2 cm", "1.05 cm"], correct: 1 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "In △ABC, AD is bisector of ∠BAC. If AB = 8 cm, BD = 6 cm and DC = 3 cm, length of AC is:", options: ["6 cm", "4 cm", "3 cm", "8 cm"], correct: 0 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "In figure ∠BAC = 90° and AD ⊥ BC then:", options: ["BD.CD = BC²", "AB.AC = BC²", "BD.CD = AD²", "AB.AC = AD²"], correct: 2 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "Two poles of heights 6 m and 11 m. Distance between feet is 12 m. Distance between tops:", options: ["13 m", "14 m", "15 m", "12.8 m"], correct: 2 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "PR = 26 cm, QR = 24 cm, ∠PAQ = 90°, PA = 6 cm, QA = 8 cm. Find ∠PQR:", options: ["80°", "85°", "75°", "90°"], correct: 2 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "A tangent is perpendicular to radius at the:", options: ["centre", "point of contact", "infinity", "chord"], correct: 1 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "How many tangents from exterior point to circle:", options: ["one", "two", "infinite", "zero"], correct: 1 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "Two tangents from P to circle with centre O. If ∠APB = 70° then ∠AOB is:", options: ["100°", "110°", "120°", "130°"], correct: 2 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "CP and CQ are tangents to circle. ARB is another tangent at R. If CP = 11 cm, then perimeter of △CAB:", options: ["11 cm", "22 cm", "33 cm", "44 cm"], correct: 0 },
+            { chapter: "Chapter 4: Geometry - Exercise 4.5", question: "If PR is tangent at P and O is centre, then ∠POQ is:", options: ["120°", "100°", "110°", "90°"], correct: 3 },
+
+            // Chapter 4: QR Code Questions
+            { chapter: "Chapter 4: Geometry - QR Code", question: "If △PQR similar to △LMN such that 4PQ = LM and QR = 6 cm, then MN equals:", options: ["12 cm", "24 cm", "10 cm", "36 cm"], correct: 1 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "In figure DE ∥ AC, which is true:", options: ["x = ay/(b+a)", "x = (a+b)/(ay)", "x = ay/(b−a)", "x/y = a/b"], correct: 3 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "S and T are on PQ and PR. If PS = 3 cm, SQ = 6 cm, PT = 5 cm, TR = 10 cm then:", options: ["4 ST", "5 ST", "3 ST", "3 QR"], correct: 1 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "DE ∥ BC, BD = x−3, BA = 2x, CE = x−2, AC = 2x+3. Find x:", options: ["3", "6", "9", "12"], correct: 0 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "Ratio of areas of two similar triangles equals:", options: ["ratio of sides", "cube of ratio of sides", "ratio of altitudes", "square of ratio of sides"], correct: 2 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "ABC is triangle, AD bisects ∠A, AB = 4 cm, BD = 6 cm, DC = 8 cm, then AC is:", options: ["16/3 cm", "32/3 cm", "3/16 cm", "1/2 cm"], correct: 1 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "Internal bisector of angle bisects opposite side. Nature of triangle:", options: ["right angle", "equilateral", "scalene", "isosceles"], correct: 0 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "Height of equilateral triangle of side a is:", options: ["a/2 cm", "√3a", "√3a/2", "√3a/4"], correct: 2 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "Perimeter of right triangle is 36 cm. Hypotenuse is 15 cm, then area:", options: ["108 cm²", "54 cm²", "27 cm²", "216 cm²"], correct: 1 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "Line intersecting circle at two points is called:", options: ["Point of contact", "secant", "diameter", "tangent"], correct: 3 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "Angle between two radii is 130°, angle between tangents at meeting point:", options: ["50°", "90°", "40°", "70°"], correct: 1 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "∠OAB = 60° and OA = 6 cm, then radius of circle is:", options: ["(3/2)√3 cm", "2 cm", "3√3 cm", "2√3 cm"], correct: 1 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "If OC = 9 cm and OB = 15 cm then OB + BD equals:", options: ["23 cm", "24 cm", "27 cm", "30 cm"], correct: 2 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "Two concentric circles of radii a and b where a > b. Length of chord of larger circle touching smaller:", options: ["√(a²−b²)", "2√(a²−b²)", "√(a²+b²)", "2√(a²+b²)"], correct: 0 },
+            { chapter: "Chapter 4: Geometry - QR Code", question: "Three circles with triangle vertices as centres. Sides are 2cm, 3 cm, 4 cm. Diameter of smallest:", options: ["1 cm", "3 cm", "5 cm", "4 cm"], correct: 3 },
+
+            // Chapter 5: Coordinate Geometry - Exercise 5.5
+            { chapter: "Chapter 5: Coordinate Geometry - Exercise 5.5", question: "Area of triangle formed by (−5,0), (0,−5) and (5,0) is:", options: ["0 sq.units", "25 sq.units", "5 sq.units", "none of these"], correct: 1 },
+            { chapter: "Chapter 5: Coordinate Geometry - Exercise 5.5", question: "Man walks near wall, distance 10 units. Wall is Y axis. Path is:", options: ["x = 10", "y = 10", "x = 0", "y = 0"], correct: 2 },
+            { chapter: "Chapter 5: Coordinate Geometry - Exercise 5.5", question: "Straight line x = 11 is:", options: ["parallel to X axis", "parallel to Y axis", "passing through origin", "passing through (0, 11)"], correct: 0 },
+            { chapter: "Chapter 5: Coordinate Geometry - Exercise 5.5", question: "If (5,7), (3,p) and (6,6) are collinear, then p is:", options: ["3", "6", "9", "12"], correct: 3 },
+            { chapter: "Chapter 5: Coordinate Geometry - Exercise 5.5", question: "Point of intersection of 3x − y = 4 and x + y = 8 is:", options: ["(5, 3)", "(2, 4)", "(3, 5)", "(4, 4)"], correct: 1 },
+            { chapter: "Chapter 5: Coordinate Geometry - Exercise 5.5", question: "Slope of line joining (12, 3), (4, a) is 1/8. Value of 'a' is:", options: ["1", "4", "−5", "2"], correct: 0 },
+            { chapter: "Chapter 5: Coordinate Geometry - Exercise 5.5", question: "Slope perpendicular to line joining (0,0) and (−8,8) is:", options: ["−1", "1", "1/3", "−8"], correct: 2 },
+            { chapter: "Chapter 5: Coordinate Geometry - Exercise 5.5", question: "If slope of PQ is 1/√3, slope of perpendicular bisector is:", options: ["√3", "−√3", "1/√3", "0"], correct: 3 },
+            { chapter: "Chapter 5: Coordinate Geometry - Exercise 5.5", question: "A is on Y axis, ordinate 8. B is on X axis, abscissa 5. Equation of AB is:", options: ["8x + 5y = 40", "8x − 5y = 40", "x = 8", "y = 5"], correct: 1 },
+            { chapter: "Chapter 5: Coordinate Geometry - Exercise 5.5", question: "Equation of line through origin perpendicular to 7x − 3y + 4 = 0 is:", options: ["7x − 3y + 4 = 0", "3x − 7y + 4 = 0", "3x + 7y = 0", "7x − 3y = 0"], correct: 0 },
+
+            // Chapter 5: QR Code Questions
+            { chapter: "Chapter 5: Coordinate Geometry - QR Code", question: "Ratio in which line joining (−3,10) and (6,−8) divided by (−1,6):", options: ["7:2", "3:4", "2:7", "5:3"], correct: 2 },
+            { chapter: "Chapter 5: Coordinate Geometry - QR Code", question: "If (0, 0), (a, 0) and (0, b) are collinear, then:", options: ["a = b", "a + b", "ab = 0", "a ≠ b"], correct: 0 },
+            { chapter: "Chapter 5: Coordinate Geometry - QR Code", question: "Mid-point of A(x/2, (y+1)/2) and B(x+1, y−3) is C(5, −2), find x, y:", options: ["(6, −1)", "(−6, 1)", "(−2, 1)", "(3, 5)"], correct: 3 },
+            { chapter: "Chapter 5: Coordinate Geometry - QR Code", question: "Area of triangle formed by (a, b+c), (b, c+a) and (c, a+b) is:", options: ["a + b + c", "abc", "(a + b + c)²", "0"], correct: 1 },
+            { chapter: "Chapter 5: Coordinate Geometry - QR Code", question: "Four vertices (1, 2), (−5, 6), (7, −4), (k, −2). If area is zero, find k:", options: ["4", "−2", "6", "3"], correct: 0 },
+            { chapter: "Chapter 5: Coordinate Geometry - QR Code", question: "Equation of line through (5, 3) parallel to y axis:", options: ["y = 5", "y = 3", "x = 5", "x = 3"], correct: 2 },
+            { chapter: "Chapter 5: Coordinate Geometry - QR Code", question: "Slope of line 2y = x + 8:", options: ["1/2", "1", "8", "2"], correct: 1 },
+            { chapter: "Chapter 5: Coordinate Geometry - QR Code", question: "Find p if y/2 = x − p passes through (−4, 4):", options: ["−4", "−6", "0", "8"], correct: 3 },
+            { chapter: "Chapter 5: Coordinate Geometry - QR Code", question: "Slope and y-intercept of 3y − √3x + 1 = 0 is:", options: ["1/√3, −1/3", "−1/√3, −1/3", "√3, 1", "−√3, 3"], correct: 0 },
+            { chapter: "Chapter 5: Coordinate Geometry - QR Code", question: "Find 'a' if 7y = ax + 4 and 2y = 3 − x are parallel:", options: ["7/2", "−2/7", "2/7", "−7/2"], correct: 1 },
+
+            // Chapter 6: Trigonometry - Exercise 6.5
+            { chapter: "Chapter 6: Trigonometry - Exercise 6.5", question: "Value of sin²θ + 1/(1+tan²θ) is:", options: ["tan²θ", "1", "cot²θ", "0"], correct: 0 },
+            { chapter: "Chapter 6: Trigonometry - Exercise 6.5", question: "tan θ cosec²θ − tan θ equals:", options: ["sec θ", "cot² θ", "sin θ", "cot θ"], correct: 3 },
+            { chapter: "Chapter 6: Trigonometry - Exercise 6.5", question: "If (sin α + cosec α)² + (cos α + sec α)² = k + tan²α + cot²α, then k is:", options: ["9", "7", "5", "3"], correct: 1 },
+            { chapter: "Chapter 6: Trigonometry - Exercise 6.5", question: "If sin θ + cos θ = a and sec θ + cosec θ = b, then b(a² −1) equals:", options: ["2a", "3a", "0", "2ab"], correct: 2 },
+            { chapter: "Chapter 6: Trigonometry - Exercise 6.5", question: "If 5x = sec θ and 5/x = tan θ, then x² − 1/x² equals:", options: ["25", "1/25", "5", "1"], correct: 0 },
+            { chapter: "Chapter 6: Trigonometry - Exercise 6.5", question: "If θ = cos θ, then 2 tan²θ + sin²θ − 1 equals:", options: ["−3/2", "3/2", "2/3", "−2/3"], correct: 1 },
+            { chapter: "Chapter 6: Trigonometry - Exercise 6.5", question: "If x = a tan θ and y = b sec θ then:", options: ["y²/b² − x²/a² = 1", "x²/a² − y²/b² = 1", "x²/a² − y²/b² = 1", "x²/a² − y²/b² = 0"], correct: 3 },
+            { chapter: "Chapter 6: Trigonometry - Exercise 6.5", question: "(1 + tan θ + sec θ)(1 + cot θ − cosec θ) equals:", options: ["0", "1", "2", "−1"], correct: 2 },
+            { chapter: "Chapter 6: Trigonometry - Exercise 6.5", question: "a cot θ + b cosec θ = p and b cot θ + a cosec θ = q then p² − q² equals:", options: ["a² − b²", "b² − a²", "a² + b²", "b − a"], correct: 0 },
+            { chapter: "Chapter 6: Trigonometry - Exercise 6.5", question: "If ratio of height of tower and shadow is √3:1, angle of elevation of sun:", options: ["45°", "30°", "90°", "60°"], correct: 1 },
+
+            // Chapter 6: QR Code Questions
+            { chapter: "Chapter 6: Trigonometry - QR Code", question: "From figure, value of cosec θ + cot θ is:", options: ["(a+b)/c", "c/(a+b)", "(b+c)/a", "b/(a+c)"], correct: 1 },
+            { chapter: "Chapter 6: Trigonometry - QR Code", question: "(sec A + tan A)(1 − sin A) equals:", options: ["sec A", "sin A", "cosec A", "cos A"], correct: 3 },
+            { chapter: "Chapter 6: Trigonometry - QR Code", question: "If x = r sin θ cos φ, y = r sin θ sin φ and z = r cos θ. Then x² + y² + z²:", options: ["r", "r²", "r²/2", "2r²"], correct: 0 },
+            { chapter: "Chapter 6: Trigonometry - QR Code", question: "If cos θ + cos²θ = 1 then sin²θ + sin⁴θ equals:", options: ["1", "0", "−1", "None"], correct: 2 },
+            { chapter: "Chapter 6: Trigonometry - QR Code", question: "If tan θ + cot θ = 3 then tan²θ + cot²θ equals:", options: ["4", "7", "6", "9"], correct: 1 },
+            { chapter: "Chapter 6: Trigonometry - QR Code", question: "If m cos θ + n sin θ = a and m sin θ − n cos θ = b then a² + b² equals:", options: ["m² − n²", "m² + n²", "m²n²", "n² − m²"], correct: 0 },
+            { chapter: "Chapter 6: Trigonometry - QR Code", question: "tan θ/(sec θ−1) + tan θ/(sec θ+1) equals:", options: ["2tan θ", "2sec θ", "2cosec θ", "2tan θ sec θ"], correct: 3 },
+            { chapter: "Chapter 6: Trigonometry - QR Code", question: "Value of 3/cot²θ − 3/cos²θ is:", options: ["1/3", "3", "0", "−3"], correct: 2 },
+            { chapter: "Chapter 6: Trigonometry - QR Code", question: "If sin(α + β) = 1 then cos(α − β) can be reduced to:", options: ["sin α", "cos β", "sin 2β", "cos 2β"], correct: 1 },
+            { chapter: "Chapter 6: Trigonometry - QR Code", question: "If x = a sec θ and y = b tan θ, then b²x² − a²y² equals:", options: ["ab", "a² − b²", "a² + b²", "a²b²"], correct: 0 },
+
+            // Chapter 7: Mensuration - Exercise 7.5
+            { chapter: "Chapter 7: Mensuration - Exercise 7.5", question: "Curved surface area of cone with height 15 cm and diameter 16 cm is:", options: ["60π cm²", "68π cm²", "120π cm²", "136π cm²"], correct: 3 },
+            { chapter: "Chapter 7: Mensuration - Exercise 7.5", question: "Two hemispheres of radius r joined along bases. Curved surface area is:", options: ["4πr² sq.units", "6πr² sq.units", "3πr² sq.units", "8πr² sq.units"], correct: 1 },
+            { chapter: "Chapter 7: Mensuration - Exercise 7.5", question: "Height of cone with radius 5 cm and slant height 13 cm is:", options: ["12 cm", "10 cm", "13 cm", "5 cm"], correct: 0 },
+            { chapter: "Chapter 7: Mensuration - Exercise 7.5", question: "Radius halved keeping height same. Ratio of volumes is:", options: ["1:2", "1:4", "1:6", "1:8"], correct: 2 },
+            { chapter: "Chapter 7: Mensuration - Exercise 7.5", question: "Total surface area of cylinder whose radius is 1/3 of height is:", options: ["9πh²/8 sq.units", "24πh² sq.units", "8πh²/9 sq.units", "56πh²/9 sq.units"], correct: 1 },
+            { chapter: "Chapter 7: Mensuration - Exercise 7.5", question: "Hollow cylinder, sum of radii 14 cm, width 4 cm, height 20 cm. Volume is:", options: ["5600π cm³", "1120π cm³", "56π cm³", "3600π cm³"], correct: 3 },
+            { chapter: "Chapter 7: Mensuration - Exercise 7.5", question: "Radius tripled and height doubled. Volume is:", options: ["made 6 times", "made 18 times", "made 12 times", "unchanged"], correct: 0 },
+            { chapter: "Chapter 7: Mensuration - Exercise 7.5", question: "Total surface area of hemisphere is how much times square of radius:", options: ["π", "4π", "3π", "2π"], correct: 2 },
+            { chapter: "Chapter 7: Mensuration - Exercise 7.5", question: "Solid sphere radius x cm melted to cone of same radius. Height of cone:", options: ["3x cm", "x cm", "4x cm", "2x cm"], correct: 1 },
+            { chapter: "Chapter 7: Mensuration - Exercise 7.5", question: "Frustum height 16 cm with radii 8 cm and 20 cm. Volume is:", options: ["3328π cm³", "3228π cm³", "3240π cm³", "3340π cm³"], correct: 2 },
+
+            // Chapter 7: QR Code Questions
+            { chapter: "Chapter 7: Mensuration - QR Code", question: "Curved surface area of cone height 15 cm diameter 16 cm (repeated):", options: ["60π cm²", "68π cm²", "120π cm²", "136π cm²"], correct: 2 },
+            { chapter: "Chapter 7: Mensuration - QR Code", question: "S₁ = total surface area of sphere radius r, S₂ = total surface of cylinder radius r height 2r:", options: ["S₁ = S₂", "S₁ > S₂", "S₁ < S₂", "S₁ = 2S₂"], correct: 0 },
+            { chapter: "Chapter 7: Mensuration - QR Code", question: "Ratio of volumes 8:27. If r and R are radii, then (R−r):r is:", options: ["1:2", "1:3", "2:3", "4:9"], correct: 3 },
+            { chapter: "Chapter 7: Mensuration - QR Code", question: "Wire radius decreased to one-third. Volume same, length increased:", options: ["3 times", "6 times", "9 times", "27 times"], correct: 1 },
+            { chapter: "Chapter 7: Mensuration - QR Code", question: "Cone height 60 cm. Small cone cut off, volume 1/64. Height of smaller cone:", options: ["45 cm", "30 cm", "15 cm", "20 cm"], correct: 2 },
+            { chapter: "Chapter 7: Mensuration - QR Code", question: "Frustum height 8 cm, radii 3 cm and 9 cm. Slant height is:", options: ["15 cm", "12 cm", "10 cm", "17 cm"], correct: 0 },
+            { chapter: "Chapter 7: Mensuration - QR Code", question: "Hemisphere bottom, cone above. Curved surface areas equal. Ratio of radius to height of cone:", options: ["1:3", "1:√3", "1:1", "√3:1"], correct: 3 },
+            { chapter: "Chapter 7: Mensuration - QR Code", question: "Cone converted to cylinder of equal radius. Cylinder height 5 cm, cone height:", options: ["10 cm", "15 cm", "18 cm", "24 cm"], correct: 1 },
+            { chapter: "Chapter 7: Mensuration - QR Code", question: "Curved surface 264 cm², volume 924 cm³. Ratio of diameter to height:", options: ["3:7", "7:3", "6:7", "7:6"], correct: 0 },
+            { chapter: "Chapter 7: Mensuration - QR Code", question: "Surface area ÷ volume = 1/3. Radius of sphere:", options: ["24 cm", "9 cm", "54 cm", "4.5 cm"], correct: 2 },
+
+            // Chapter 8: Statistics & Probability - Exercise 8.5
+            { chapter: "Chapter 8: Statistics & Probability - Exercise 8.5", question: "Which is not a measure of dispersion:", options: ["Range", "Standard deviation", "Arithmetic mean", "Variance"], correct: 1 },
+            { chapter: "Chapter 8: Statistics & Probability - Exercise 8.5", question: "Range of data 8, 8, 8, 8, 8...8 is:", options: ["0", "1", "8", "3"], correct: 3 },
+            { chapter: "Chapter 8: Statistics & Probability - Exercise 8.5", question: "Sum of all deviations from mean is:", options: ["Always positive", "always negative", "zero", "non-zero integer"], correct: 0 },
+            { chapter: "Chapter 8: Statistics & Probability - Exercise 8.5", question: "Mean 100, SD 3. Sum of squares of deviations is:", options: ["40000", "900", "160000", "30000"], correct: 2 },
+            { chapter: "Chapter 8: Statistics & Probability - Exercise 8.5", question: "Variance of first 20 natural numbers is:", options: ["32.25", "44.25", "33.25", "30"], correct: 1 },
+            { chapter: "Chapter 8: Statistics & Probability - Exercise 8.5", question: "SD is 3. Each value multiplied by 5, new variance is:", options: ["3", "15", "5", "225"], correct: 0 },
+            { chapter: "Chapter 8: Statistics & Probability - Exercise 8.5", question: "If SD of x, y, z is p then SD of 3x+5, 3y+5, 3z+5 is:", options: ["3p + 5", "3p", "p + 5", "9p + 15"], correct: 3 },
+            { chapter: "Chapter 8: Statistics & Probability - Exercise 8.5", question: "Mean 4, CV 87.5%, then SD is:", options: ["3.5", "3", "4.5", "2.5"], correct: 2 },
+            { chapter: "Chapter 8: Statistics & Probability - Exercise 8.5", question: "Which is incorrect:", options: ["P(A) > 1", "0 ≤ P(A) ≤ 1", "P(∅) = 0", "P(A) + P(Ā) = 1"], correct: 1 },
+            { chapter: "Chapter 8: Statistics & Probability - Exercise 8.5", question: "Probability of red marble from jar with p red, q blue, r green:", options: ["q/(p+q+r)", "p/(p+q+r)", "(p+q)/(p+q+r)", "(p+r)/(p+q+r)"], correct: 0 },
+
+            // Chapter 8: QR Code Questions
+            { chapter: "Chapter 8: Statistics & Probability - QR Code", question: "Range of first 10 prime numbers is:", options: ["9", "20", "27", "5"], correct: 0 },
+            { chapter: "Chapter 8: Statistics & Probability - QR Code", question: "Smallest value 25, coefficient of range 0.5. Largest value is:", options: ["25", "75", "100", "12.5"], correct: 2 },
+            { chapter: "Chapter 8: Statistics & Probability - QR Code", question: "Observations 1,2,...50 have variance V₁, observations 51,52,...100 have variance V₂. V₁/V₂ is:", options: ["2", "1", "½", "0"], correct: 1 },
+            { chapter: "Chapter 8: Statistics & Probability - QR Code", question: "If SD of x is 4 and y = (3x+5)/4, then SD of y is:", options: ["4", "3.5", "3", "2.5"], correct: 3 },
+            { chapter: "Chapter 8: Statistics & Probability - QR Code", question: "Data multiplied by 4, variance gets multiplied by:", options: ["4", "16", "2", "None"], correct: 0 },
+            { chapter: "Chapter 8: Statistics & Probability - QR Code", question: "CV 35%, SD 7.7. Mean is:", options: ["20", "30", "25", "22"], correct: 2 },
+            { chapter: "Chapter 8: Statistics & Probability - QR Code", question: "Batsman A more consistent than B if:", options: ["C.V of A > C.V of B", "C.V of A < C.V of B", "C.V of A = C.V of B", "C.V of A ≥ C.V of B"], correct: 1 },
+            { chapter: "Chapter 8: Statistics & Probability - QR Code", question: "Event occurs surely, probability is:", options: ["1", "0", "1/2", "3/4"], correct: 3 },
+            { chapter: "Chapter 8: Statistics & Probability - QR Code", question: "Letter from PROBABILITY. Probability not a vowel:", options: ["4/11", "7/11", "3/11", "6/11"], correct: 0 },
+            { chapter: "Chapter 8: Statistics & Probability - QR Code", question: "Competition with events A, B. P(A)=1/3, P(B)=1/4, P(both)=1/4. P(only one):", options: ["1/12", "5/12", "1/12", "7/12"], correct: 2 }
+        ];
+
+        let correctCount = 0;
+        let wrongCount = 0;
+        let totalAttempted = 0;
+        let answeredQuestions = new Set();
+
+        function renderQuestions() {
+            const container = document.getElementById('questions-container');
+            container.innerHTML = '';
+            let currentChapter = '';
+
+            questions.forEach((q, index) => {
+                if (q.chapter !== currentChapter) {
+                    currentChapter = q.chapter;
+                    const chapterHeader = document.createElement('div');
+                    chapterHeader.className = 'chapter-header';
+                    chapterHeader.textContent = currentChapter;
+                    container.appendChild(chapterHeader);
+                }
+
+                const questionCard = document.createElement('div');
+                questionCard.className = 'question-card';
+                questionCard.id = `question-${index}`;
+
+                let optionsHTML = '';
+                q.options.forEach((option, optIndex) => {
+                    optionsHTML += `
+                        <div class="option" onclick="checkAnswer(${index}, ${optIndex})" data-question="${index}" data-option="${optIndex}">
+                            ${String.fromCharCode(65 + optIndex)}. ${option}
+                        </div>
+                    `;
+                });
+
+                questionCard.innerHTML = `
+                    <span class="question-number">Question ${index + 1}</span>
+                    <div class="question-text">${q.question}</div>
+                    <div class="options">
+                        ${optionsHTML}
+                    </div>
+                    <div class="feedback" id="feedback-${index}"></div>
+                `;
+
+                container.appendChild(questionCard);
+            });
+        }
+
+        function checkAnswer(questionIndex, selectedOption) {
+            if (answeredQuestions.has(questionIndex)) {
+                return;
+            }
+
+            const question = questions[questionIndex];
+            const isCorrect = selectedOption === question.correct;
+            const feedback = document.getElementById(`feedback-${questionIndex}`);
+            
+            const allOptions = document.querySelectorAll(`[data-question="${questionIndex}"]`);
+            
+            allOptions.forEach(option => {
+                option.classList.add('disabled');
+            });
+
+            const selectedOptionElement = document.querySelector(`[data-question="${questionIndex}"][data-option="${selectedOption}"]`);
+            
+            if (isCorrect) {
+                selectedOptionElement.classList.add('correct');
+                feedback.className = 'feedback correct show';
+                feedback.innerHTML = '✓ Excellent! Correct answer!';
+                correctCount++;
+            } else {
+                selectedOptionElement.classList.add('wrong');
+                const correctOptionElement = document.querySelector(`[data-question="${questionIndex}"][data-option="${question.correct}"]`);
+                correctOptionElement.classList.add('correct');
+                
+                feedback.className = 'feedback wrong show';
+                feedback.innerHTML = `✗ Incorrect! The correct answer is: ${String.fromCharCode(65 + question.correct)}. ${question.options[question.correct]}`;
+                wrongCount++;
+            }
+
+            answeredQuestions.add(questionIndex);
+            totalAttempted++;
+            updateScoreBoard();
+            checkCompletion();
+        }
+
+        function updateScoreBoard() {
+            document.getElementById('correct-count').textContent = correctCount;
+            document.getElementById('wrong-count').textContent = wrongCount;
+            document.getElementById('total-count').textContent = `${totalAttempted}/${questions.length}`;
+        }
+
+        function checkCompletion() {
+            if (totalAttempted === questions.length) {
+                const completionMessage = document.getElementById('completion-message');
+                const percentage = ((correctCount / questions.length) * 100).toFixed(1);
+                document.getElementById('final-score').textContent = 
+                    `Your Score: ${correctCount}/${questions.length} (${percentage}%)`;
+                completionMessage.classList.add('show');
+            }
+        }
+
+        function resetQuiz() {
+            correctCount = 0;
+            wrongCount = 0;
+            totalAttempted = 0;
+            answeredQuestions.clear();
+            updateScoreBoard();
+            document.getElementById('completion-message').classList.remove('show');
+            renderQuestions();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        renderQuestions();
+    </script>
+</body>
+</html>
